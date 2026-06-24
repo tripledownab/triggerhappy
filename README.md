@@ -57,7 +57,7 @@ See [CLAUDE.md](CLAUDE.md) for a detailed tour. In brief:
 
 ## Credits
 
-The BBS/ANSI aesthetic is inspired by **Cathode**, a sister TUI harness for Claude Code (repo not public yet) — same CP437 palette, animated rainbow wordmark, and lightbar conventions.
+The BBS/ANSI aesthetic is inspired by [Cathode](https://github.com/tripledownab/cathode), a sister TUI harness for Claude Code — same CP437 palette, animated rainbow wordmark, and lightbar conventions.
 
 ## License
 
