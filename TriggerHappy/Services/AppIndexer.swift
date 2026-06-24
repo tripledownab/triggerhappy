@@ -102,6 +102,22 @@ final class AppIndexer {
             .map(\.app)
     }
 
+    /// Indices of `name` that `query` greedily matches as a (case-insensitive)
+    /// subsequence — for highlighting matched characters in results. Empty when
+    /// `query` is empty or isn't a full subsequence of `name`.
+    static func matchedIndices(query: String, in name: String) -> Set<Int> {
+        let q = Array(query.lowercased())
+        guard !q.isEmpty else { return [] }
+        let chars = Array(name.lowercased())
+        var matched = Set<Int>()
+        var qi = 0
+        for (i, c) in chars.enumerated() where qi < q.count && c == q[qi] {
+            matched.insert(i)
+            qi += 1
+        }
+        return qi == q.count ? matched : []
+    }
+
     /// Returns a score if query fuzzy-matches target, nil if no match.
     /// Higher score = better match.
     private func fuzzyScore(query: String, target: String) -> Int? {

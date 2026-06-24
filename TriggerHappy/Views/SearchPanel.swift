@@ -581,6 +581,18 @@ extension BBS {
         if n <= 1 { return "\u{2026}" }
         return String(s.prefix(n - 1)) + "\u{2026}"
     }
+
+    /// Render `name` with its query-matched characters in `matched` and the rest
+    /// in `dim`; the whole name in `base` when there's no query (or no match).
+    static func matchedName(_ name: String, query: String, base: Color, matched: Color, dim: Color) -> Text {
+        let idx = AppIndexer.matchedIndices(query: query, in: name)
+        if idx.isEmpty { return Text(name).foregroundColor(base) }
+        var result = Text("")
+        for (i, ch) in name.enumerated() {
+            result = result + Text(String(ch)).foregroundColor(idx.contains(i) ? matched : dim)
+        }
+        return result
+    }
 }
 
 /// Shared CP437 banner: shaded blocks framing an animated rainbow wordmark over
@@ -687,6 +699,7 @@ struct BBSSearchPanel: View {
                     ForEach(Array(visible.enumerated()), id: \.element.id) { index, app in
                         BBSResultRow(
                             app: app,
+                            query: query,
                             index: index,
                             isSelected: index == selectedIndex,
                             cols: cols,
@@ -784,6 +797,7 @@ struct BBSSearchPanel: View {
 /// Selected rows render as a full-width white-on-magenta lightbar.
 struct BBSResultRow: View {
     let app: IndexedApp
+    let query: String
     let index: Int
     let isSelected: Bool
     let cols: Int
@@ -798,14 +812,18 @@ struct BBSResultRow: View {
         let dotCount = max(1, cols - 6 - name.count)
         let dots = String(repeating: "·", count: dotCount)
 
+        let nameText: Text = isSelected
+            ? BBS.matchedName(name, query: query, base: BBS.onMagenta, matched: BBS.onMagenta, dim: BBS.onMagenta.opacity(0.55)).bold()
+            : BBS.matchedName(name, query: query, base: BBS.green, matched: BBS.amber, dim: BBS.green.opacity(0.5))
+
         let line: Text = {
             if isSelected {
-                return Text(marker + name + " " + dots + " " + num)
-                    .foregroundColor(BBS.onMagenta)
-                    .bold()
+                return Text(marker).foregroundColor(BBS.onMagenta).bold()
+                    + nameText
+                    + Text(" " + dots + " " + num).foregroundColor(BBS.onMagenta).bold()
             }
             return Text(marker).foregroundColor(BBS.cyan)
-                + Text(name).foregroundColor(BBS.green)
+                + nameText
                 + Text(" " + dots + " ").foregroundColor(BBS.gray)
                 + Text(num).foregroundColor(BBS.gray)
         }()
@@ -933,28 +951,52 @@ struct QuakeSearchPanel: View {
     }
 
     private var resultsRow: some View {
-        ScrollViewReader { proxy in
-            ScrollView(.horizontal) {
-                HStack(spacing: 6) {
-                    if results.isEmpty {
-                        Text(BBS.flavor(query.isEmpty ? "type to run a program" : "no carrier"))
-                            .font(BBS.font())
-                            .foregroundColor(query.isEmpty ? BBS.gray : BBS.red)
-                            .padding(.leading, 6)
-                    } else {
-                        ForEach(Array(results.enumerated()), id: \.element.id) { i, app in
-                            QuakeChip(app: app, isSelected: i == selectedIndex, onSelect: { launchApp(app) })
-                                .id(i)
-                        }
+        GeometryReader { geo in
+            HStack(spacing: 6) {
+                if results.isEmpty {
+                    Text(BBS.flavor(query.isEmpty ? "type to run a program" : "no carrier"))
+                        .font(BBS.font())
+                        .foregroundColor(query.isEmpty ? BBS.gray : BBS.red)
+                        .padding(.leading, 6)
+                } else {
+                    ForEach(Array(results.enumerated()), id: \.element.id) { i, app in
+                        QuakeChip(app: app, query: query, isSelected: i == selectedIndex, onSelect: { launchApp(app) })
                     }
                 }
-                .padding(.horizontal, 12)
             }
-            .scrollIndicators(.hidden)
-            .onChange(of: selectedIndex) { _, idx in
-                withAnimation(.easeOut(duration: 0.12)) { proxy.scrollTo(idx, anchor: .center) }
-            }
+            // Lay out at natural width so chips aren't squeezed/truncated to the
+            // viewport; the offset + clip provides the horizontal scroll instead.
+            .fixedSize(horizontal: true, vertical: false)
+            .padding(.horizontal, 12)
+            .frame(height: geo.size.height, alignment: .leading)
+            .offset(x: resultsOffset(viewport: geo.size.width))
+            .animation(.easeOut(duration: 0.14), value: selectedIndex)
         }
+        .clipped()
+    }
+
+    // Manual horizontal scroll: keep the selected chip centered, clamped to the
+    // ends. Chip widths are derived from the monospaced cell width, so no
+    // ScrollView (hence no macOS scrollbar) is involved.
+    private func resultsOffset(viewport: CGFloat) -> CGFloat {
+        guard !results.isEmpty else { return 0 }
+        let spacing: CGFloat = 6, rowPad: CGFloat = 12, chipPad: CGFloat = 10
+        func chipW(_ app: IndexedApp) -> CGFloat { CGFloat(app.name.count) * BBS.charWidth + chipPad * 2 }
+
+        var lead = rowPad
+        var selCenter = rowPad
+        var total = rowPad
+        for (i, app) in results.enumerated() {
+            let w = chipW(app)
+            if i == selectedIndex { selCenter = lead + w / 2 }
+            lead += w + spacing
+            total += w + (i < results.count - 1 ? spacing : 0)
+        }
+        total += rowPad
+
+        let desired = viewport / 2 - selCenter
+        let minOffset = min(0, viewport - total)
+        return max(minOffset, min(0, desired))
     }
 
     private func installKeyMonitor() {
@@ -999,13 +1041,16 @@ struct QuakeSearchPanel: View {
 /// One horizontal result in the Quake strip; selected = white-on-magenta pill.
 struct QuakeChip: View {
     let app: IndexedApp
+    let query: String
     let isSelected: Bool
     let onSelect: () -> Void
 
     var body: some View {
-        Text(app.name)
+        let nameText = isSelected
+            ? BBS.matchedName(app.name, query: query, base: BBS.onMagenta, matched: BBS.onMagenta, dim: BBS.onMagenta.opacity(0.55))
+            : BBS.matchedName(app.name, query: query, base: BBS.green, matched: BBS.amber, dim: BBS.green.opacity(0.5))
+        return nameText
             .font(BBS.font(isSelected ? .bold : .regular))
-            .foregroundColor(isSelected ? BBS.onMagenta : BBS.green)
             .lineLimit(1)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
