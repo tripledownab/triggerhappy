@@ -37,6 +37,16 @@ Three features (App Launcher, Cheat Sheet, Clipboard History) follow an identica
 - Positions on the screen where the mouse cursor is
 - `toggle()` shows or hides; always recreates the window fresh on show
 
+### Overlay Theme System
+
+Each of the three overlays has a **Modern** SwiftUI variant and a **BBS** variant (a 90s ANSI/PCBoard terminal look, inspired by the sister project Cathode). The `*WindowController`s pick the variant based on `AppDelegate.launcherTheme` (`LauncherTheme.modern`/`.bbs`) and wrap it in `AnyView`.
+
+- **Shared BBS toolkit** lives in `Views/SearchPanel.swift`: the `BBS` enum (palette accessors, `font`, `leet`/`studly`/`flavor`, `divider`, `wordmark`, `trunc`, `luminance`/`hsb`/`onMagenta`) plus `BBSBanner` and the `BBSFrame` modifier. The clipboard and cheat-sheet BBS views reuse all of it.
+- **Color schemes**: `BBSScheme` (15 palettes, incl. VS Code ports like Dracula/Nord/Catppuccin) → `BBSPalette` (10 color roles). `BBS.cyan`, `BBS.slate`, etc. resolve through `BBSScheme.current`, **cached** and rebuilt only when the scheme key changes (hot paths like the per-character wordmark must not re-read UserDefaults each frame). The selection lightbar text uses `BBS.onMagenta`, which auto-picks dark/light by the accent's luminance.
+- **Banner wordmark**: `BBSWordmark` — `.theme` (shimmers the scheme's main color, matching the ornaments), `.rainbow` (full spectrum), or a fixed color. Animated via `TimelineView(.animation)`.
+- **Launcher layout**: `LauncherLayout.center` vs `.quake` (`QuakeSearchPanel` — a full-width one-line console that drops down from the top). The drop is animated **in SwiftUI** (a content `.offset`), because `NSWindow` frame animation is unreliable with `NSHostingView`. Quake is only used when theme == `.bbs`.
+- All preferences persist to `UserDefaults` under `com.triggerhappy.*` (`launcherTheme`, `bbsScheme`, `bbsWordmark`, `launcherLayout`, `panelOpacity`, the three system hotkeys).
+
 ### Data Flow
 
 `BindingStore` (@Observable) is the single source of truth for user hotkeys. It persists to UserDefaults as JSON. When bindings change, it fires `onBindingsChanged` which triggers `HotkeyManager.reregisterAll()` — this unregisters all Carbon hotkeys and re-registers only enabled ones.
@@ -54,3 +64,9 @@ The app uses `NSPopover` with `.applicationDefined` behavior (not `.transient`) 
 ### App Indexer
 
 Recursively scans `/Applications`, `/System/Applications`, `/System/Library/CoreServices`, and `~/Applications` to depth 2. Uses a custom fuzzy scoring algorithm with bonuses for prefix match, consecutive characters, and word-boundary matches.
+
+It scans **without** `.skipsHiddenFiles` and excludes dotfiles by name instead. This is deliberate: `/Applications/Safari.app` is a BSD-`hidden` symlink into the macOS cryptex (`../System/Cryptexes/App/...`), so `.skipsHiddenFiles` would silently drop Safari.
+
+## Gotchas
+
+- **`project.pbxproj` uses explicit file references** (objectVersion 56, not an Xcode 16 synchronized group). A new `.swift` file is **not** picked up automatically — it needs manual pbxproj edits (fileRef + buildFile + group + Sources phase). To avoid that, the BBS theme code was appended to files already in the project (e.g. `Views/SearchPanel.swift`) rather than added as new files.
