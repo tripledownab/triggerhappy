@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000010000000000000001 /* TriggerHappyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000010000000000000001; };
+		A10000020000000000000002 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000002; };
+		A10000030000000000000003 /* HotkeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000030000000000000003; };
+		A10000040000000000000004 /* KeyCodeMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000040000000000000004; };
+		A10000050000000000000005 /* BindingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000050000000000000005; };
+		A10000060000000000000006 /* AppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000060000000000000006; };
+		A10000070000000000000007 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000070000000000000007; };
+		A10000080000000000000008 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000080000000000000008; };
+		A10000090000000000000009 /* KeyRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000090000000000000009; };
+		A10000100000000000000010 /* AppPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000100000000000000010; };
+		A10000110000000000000011 /* AddBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000110000000000000011; };
+		A10000120000000000000012 /* BindingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000120000000000000012; };
+		A10000130000000000000013 /* PermissionPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000130000000000000013; };
+		A10000140000000000000014 /* MenuBarPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000140000000000000014; };
+		A10000150000000000000015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20000150000000000000015; };
+		A10000160000000000000016 /* AppIndexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000180000000000000018; };
+		A10000170000000000000017 /* SearchPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000190000000000000019; };
+		A10000180000000000000018 /* SearchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000200000000000000020; };
+		A10000190000000000000019 /* KeyablePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000210000000000000021; };
+		A10000200000000000000020 /* CheatSheetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000220000000000000022; };
+		A10000210000000000000021 /* CheatSheetPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000230000000000000023; };
+		A10000220000000000000022 /* ClipboardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000240000000000000024; };
+		A10000230000000000000023 /* ClipboardStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000250000000000000025; };
+		A10000240000000000000024 /* ClipboardWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000260000000000000026; };
+		A10000250000000000000025 /* ClipboardHistoryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000270000000000000027; };
+		A10000260000000000000026 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000280000000000000028; };
+		A10000270000000000000027 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000290000000000000029; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A20000010000000000000001 /* TriggerHappyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggerHappyApp.swift; sourceTree = "<group>"; };
+		A20000020000000000000002 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
+		A20000030000000000000003 /* HotkeyBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyBinding.swift; sourceTree = "<group>"; };
+		A20000040000000000000004 /* KeyCodeMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCodeMapping.swift; sourceTree = "<group>"; };
+		A20000050000000000000005 /* BindingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingStore.swift; sourceTree = "<group>"; };
+		A20000060000000000000006 /* AppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLauncher.swift; sourceTree = "<group>"; };
+		A20000070000000000000007 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		A20000080000000000000008 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		A20000090000000000000009 /* KeyRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecorderView.swift; sourceTree = "<group>"; };
+		A20000100000000000000010 /* AppPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPickerButton.swift; sourceTree = "<group>"; };
+		A20000110000000000000011 /* AddBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBindingView.swift; sourceTree = "<group>"; };
+		A20000120000000000000012 /* BindingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingRowView.swift; sourceTree = "<group>"; };
+		A20000130000000000000013 /* PermissionPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPromptView.swift; sourceTree = "<group>"; };
+		A20000140000000000000014 /* MenuBarPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarPanel.swift; sourceTree = "<group>"; };
+		A20000150000000000000015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A20000160000000000000016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A20000170000000000000017 /* TriggerHappy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TriggerHappy.entitlements; sourceTree = "<group>"; };
+		A20000180000000000000018 /* AppIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIndexer.swift; sourceTree = "<group>"; };
+		A20000190000000000000019 /* SearchPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPanel.swift; sourceTree = "<group>"; };
+		A20000200000000000000020 /* SearchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWindowController.swift; sourceTree = "<group>"; };
+		A20000210000000000000021 /* KeyablePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyablePanel.swift; sourceTree = "<group>"; };
+		A20000220000000000000022 /* CheatSheetWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetWindowController.swift; sourceTree = "<group>"; };
+		A20000230000000000000023 /* CheatSheetPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetPanel.swift; sourceTree = "<group>"; };
+		A20000240000000000000024 /* ClipboardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardEntry.swift; sourceTree = "<group>"; };
+		A20000250000000000000025 /* ClipboardStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardStore.swift; sourceTree = "<group>"; };
+		A20000260000000000000026 /* ClipboardWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardWindowController.swift; sourceTree = "<group>"; };
+		A20000270000000000000027 /* ClipboardHistoryPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryPanel.swift; sourceTree = "<group>"; };
+		A20000280000000000000028 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A20000290000000000000029 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		A30000000000000000000001 /* TriggerHappy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TriggerHappy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A50000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A50000020000000000000002 /* TriggerHappy */,
+				A50000070000000000000007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A50000020000000000000002 /* TriggerHappy */ = {
+			isa = PBXGroup;
+			children = (
+				A20000010000000000000001 /* TriggerHappyApp.swift */,
+				A20000160000000000000016 /* Info.plist */,
+				A20000170000000000000017 /* TriggerHappy.entitlements */,
+				A20000150000000000000015 /* Assets.xcassets */,
+				A50000030000000000000003 /* Models */,
+				A50000040000000000000004 /* Services */,
+				A50000050000000000000005 /* Views */,
+				A50000060000000000000006 /* Utilities */,
+			);
+			path = TriggerHappy;
+			sourceTree = "<group>";
+		};
+		A50000030000000000000003 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A20000020000000000000002 /* KeyCombination.swift */,
+				A20000030000000000000003 /* HotkeyBinding.swift */,
+				A20000240000000000000024 /* ClipboardEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A50000040000000000000004 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A20000050000000000000005 /* BindingStore.swift */,
+				A20000060000000000000006 /* AppLauncher.swift */,
+				A20000070000000000000007 /* PermissionManager.swift */,
+				A20000080000000000000008 /* HotkeyManager.swift */,
+				A20000180000000000000018 /* AppIndexer.swift */,
+				A20000200000000000000020 /* SearchWindowController.swift */,
+				A20000220000000000000022 /* CheatSheetWindowController.swift */,
+				A20000250000000000000025 /* ClipboardStore.swift */,
+				A20000260000000000000026 /* ClipboardWindowController.swift */,
+				A20000290000000000000029 /* SettingsWindowController.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A50000050000000000000005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A20000140000000000000014 /* MenuBarPanel.swift */,
+				A20000090000000000000009 /* KeyRecorderView.swift */,
+				A20000100000000000000010 /* AppPickerButton.swift */,
+				A20000110000000000000011 /* AddBindingView.swift */,
+				A20000120000000000000012 /* BindingRowView.swift */,
+				A20000130000000000000013 /* PermissionPromptView.swift */,
+				A20000190000000000000019 /* SearchPanel.swift */,
+				A20000230000000000000023 /* CheatSheetPanel.swift */,
+				A20000270000000000000027 /* ClipboardHistoryPanel.swift */,
+				A20000280000000000000028 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50000060000000000000006 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A20000040000000000000004 /* KeyCodeMapping.swift */,
+				A20000210000000000000021 /* KeyablePanel.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A50000070000000000000007 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A30000000000000000000001 /* TriggerHappy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A60000000000000000000001 /* TriggerHappy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A80000030000000000000003 /* Build configuration list for PBXNativeTarget "TriggerHappy" */;
+			buildPhases = (
+				A70000000000000000000001 /* Sources */,
+				A40000000000000000000001 /* Frameworks */,
+				A90000000000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TriggerHappy;
+			productName = TriggerHappy;
+			productReference = A30000000000000000000001 /* TriggerHappy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					A60000000000000000000001 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = A80000010000000000000001 /* Build configuration list for PBXProject "TriggerHappy" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A50000000000000000000001;
+			productRefGroup = A50000070000000000000007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A60000000000000000000001 /* TriggerHappy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A90000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000150000000000000015 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A70000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000010000000000000001 /* TriggerHappyApp.swift in Sources */,
+				A10000020000000000000002 /* KeyCombination.swift in Sources */,
+				A10000030000000000000003 /* HotkeyBinding.swift in Sources */,
+				A10000040000000000000004 /* KeyCodeMapping.swift in Sources */,
+				A10000050000000000000005 /* BindingStore.swift in Sources */,
+				A10000060000000000000006 /* AppLauncher.swift in Sources */,
+				A10000070000000000000007 /* PermissionManager.swift in Sources */,
+				A10000080000000000000008 /* HotkeyManager.swift in Sources */,
+				A10000090000000000000009 /* KeyRecorderView.swift in Sources */,
+				A10000100000000000000010 /* AppPickerButton.swift in Sources */,
+				A10000110000000000000011 /* AddBindingView.swift in Sources */,
+				A10000120000000000000012 /* BindingRowView.swift in Sources */,
+				A10000130000000000000013 /* PermissionPromptView.swift in Sources */,
+				A10000140000000000000014 /* MenuBarPanel.swift in Sources */,
+				A10000160000000000000016 /* AppIndexer.swift in Sources */,
+				A10000170000000000000017 /* SearchPanel.swift in Sources */,
+				A10000180000000000000018 /* SearchWindowController.swift in Sources */,
+				A10000190000000000000019 /* KeyablePanel.swift in Sources */,
+				A10000200000000000000020 /* CheatSheetWindowController.swift in Sources */,
+				A10000210000000000000021 /* CheatSheetPanel.swift in Sources */,
+				A10000220000000000000022 /* ClipboardEntry.swift in Sources */,
+				A10000230000000000000023 /* ClipboardStore.swift in Sources */,
+				A10000240000000000000024 /* ClipboardWindowController.swift in Sources */,
+				A10000250000000000000025 /* ClipboardHistoryPanel.swift in Sources */,
+				A10000260000000000000026 /* SettingsView.swift in Sources */,
+				A10000270000000000000027 /* SettingsWindowController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B10000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B10000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		B20000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TriggerHappy/TriggerHappy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TriggerHappy/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.triggerhappy.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B20000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TriggerHappy/TriggerHappy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TriggerHappy/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.triggerhappy.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A80000010000000000000001 /* Build configuration list for PBXProject "TriggerHappy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B10000000000000000000001 /* Debug */,
+				B10000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A80000030000000000000003 /* Build configuration list for PBXNativeTarget "TriggerHappy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20000000000000000000001 /* Debug */,
+				B20000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = A00000000000000000000001 /* Project object */;
+}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Trigger Happy
+Comment=Global hotkey manager and app launcher
+Exec=python3 triggerhappy.py
+Icon=preferences-desktop-keyboard
+Categories=Utility;
+Terminal=false

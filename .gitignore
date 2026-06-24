@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Xcode build output / user state
+build/
+DerivedData/
+*.xcuserstate
+TriggerHappy.xcodeproj/xcuserdata/
+TriggerHappy.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Built app (copied to project root by the build step)
+TriggerHappy.app/
+
+# Claude local settings
+.claude/settings.local.json
