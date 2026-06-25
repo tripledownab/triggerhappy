@@ -183,7 +183,7 @@ struct SearchResultRow: View {
 //
 // The App Launcher overlay can wear one of two skins, chosen in Settings.
 // `.modern` is the frosted SwiftUI panel above; `.bbs` is the ANSI / PCBoard
-// throwback below — inspired by the sister project "Doorway". The enum is the
+// throwback below — inspired by the sister project "Cathode". The enum is the
 // single knob the rest of the app branches on.
 
 enum LauncherTheme: String, CaseIterable, Identifiable {
@@ -296,7 +296,7 @@ enum BBSScheme: String, CaseIterable, Identifiable {
     var palette: BBSPalette {
         func c(_ r: Double, _ g: Double, _ b: Double) -> Color { Color(red: r, green: g, blue: b) }
         switch self {
-        case .classic: // muted pastel on slate (sampled from Doorway)
+        case .classic: // muted pastel on slate (sampled from Cathode)
             return BBSPalette(
                 slate:   c(0.220, 0.220, 0.282), cyan:  c(0.596, 0.847, 0.847),
                 magenta: c(0.878, 0.424, 0.706), yellow: c(0.988, 0.894, 0.706),
@@ -411,7 +411,7 @@ enum BBSScheme: String, CaseIterable, Identifiable {
 
 // MARK: - BBS / CP437 aesthetic toolkit
 //
-// A small vocabulary lifted from Doorway's 90s ANSI-art look: high-intensity
+// A small vocabulary lifted from Cathode's 90s ANSI-art look: high-intensity
 // base-16 colors on black, a monospaced grid, l33t/StUdLy chrome text, scene
 // dividers, and a white-on-magenta "lightbar" for the selected row. Everything
 // here is presentation-only chrome — it never touches app names the user has to
