@@ -68,16 +68,20 @@ All three are configurable in Settings, alongside your custom app-launch binding
 
 ## Build & Run
 
-Pure Xcode project — no SPM, no CocoaPods.
+Pure Xcode project — no SPM, no CocoaPods. A `Makefile` wraps the usual steps:
 
 ```bash
-# Build
+make build      # compile (xcodebuild under the hood)
+make install    # build, copy TriggerHappy.app to the project root, and launch it
+make run        # relaunch the copied app
+make clean      # remove build products
+```
+
+Or drive `xcodebuild` directly:
+
+```bash
 xcodebuild -project TriggerHappy.xcodeproj -scheme TriggerHappy -configuration Debug build
-
-# Copy the built app to the project root
 cp -R ~/Library/Developer/Xcode/DerivedData/TriggerHappy-*/Build/Products/Debug/TriggerHappy.app ./TriggerHappy.app
-
-# Run
 open ./TriggerHappy.app
 ```
 

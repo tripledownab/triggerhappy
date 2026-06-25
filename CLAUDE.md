@@ -4,14 +4,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Run
 
+A `Makefile` wraps the build:
+
 ```bash
-# Build
+make build      # compile (xcodebuild)
+make install    # build, copy TriggerHappy.app to the project root, and launch it
+make run        # relaunch the copied app
+make clean      # remove build products
+```
+
+Equivalent raw commands:
+
+```bash
 xcodebuild -project TriggerHappy.xcodeproj -scheme TriggerHappy -configuration Debug build
-
-# Copy built app to project root
 cp -R ~/Library/Developer/Xcode/DerivedData/TriggerHappy-*/Build/Products/Debug/TriggerHappy.app ./TriggerHappy.app
-
-# Run
 open ./TriggerHappy.app
 ```
 
